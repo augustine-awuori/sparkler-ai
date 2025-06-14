@@ -21,6 +21,7 @@ except Exception as e:
     logger.error(f"Failed to load model: {str(e)}")
     raise
 
+
 @app.route('/generate', methods=['POST'])
 def generate():
     try:
@@ -58,9 +59,11 @@ def generate():
         logger.error(f"Error generating response: {str(e)}")
         return jsonify({'error': str(e)})
 
+
 @app.route('/')
 def home():
     return 'Welcome to Sparkler AI (AKA Grao AI) server!'
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
